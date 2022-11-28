@@ -7,6 +7,7 @@ import com.nordeus.dataengineering.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,8 +34,25 @@ public class Config {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private EventRepository eventRepository;
+
     @Bean
+    @Order(1)
+    public void deleteALlData(){
+        exchangeRateRepository.deleteAll();
+        loginEventRepository.deleteAll();
+        registrationEventRepository.deleteAll();
+        transactionEventRepository.deleteAll();
+        currencyRepository.deleteAll();
+        userRepository.deleteAll();
+        eventRepository.deleteAll();
+        System.out.println("All data deleted");
+    }
+    @Bean
+    @Order(2)
     public void readExchangeRates() {
+
         BufferedReader reader = null;
 
         try {
@@ -67,6 +85,7 @@ public class Config {
     }
 
     @Bean
+    @Order(3)
     public void readEvents() {
         BufferedReader reader = null;
 
@@ -184,8 +203,23 @@ public class Config {
                 e.printStackTrace();
             }
         }
+        System.out.println("All data processed");
     }
 
+    @Bean
+    @Order(4)
+    public void cleanData(){
+            loginEventRepository.removeInvalidEventsByDate();
+            loginEventRepository.removeDuplicateLogins();
+            transactionEventRepository.removeDuplicateTransactions();
+            loginEventRepository.removeLoginsForNoRegistratedUsers();
+            transactionEventRepository.removeTransactionsForNoRegistratedUsers();
+            loginEventRepository.removeLoginsBeforeRegistration();
+            transactionEventRepository.removeTransactionsBeforeRegistration();
+            transactionEventRepository.removeTransactionsSameLoginTime();
+
+        System.out.println("All data cleaned");
+    }
     private static BufferedReader getResourceFileAsString(String fileName) {
         InputStream is = getResourceFileAsInputStream(fileName);
         if (is != null) {

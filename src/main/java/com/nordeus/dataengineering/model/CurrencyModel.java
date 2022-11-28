@@ -11,6 +11,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+
+ * Entity class for currency table
+
+ * @version 1.0
+
+ * @author Aleksandar Paripovic
+
+ */
 @Getter
 @Setter
 @NoArgsConstructor

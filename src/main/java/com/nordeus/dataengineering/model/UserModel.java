@@ -9,7 +9,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+/**
 
+ * Entity class for user table
+
+ * @version 1.0
+
+ * @author Aleksandar Paripovic
+
+ */
 
 @Setter
 @Getter

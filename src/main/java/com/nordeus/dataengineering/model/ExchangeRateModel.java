@@ -6,7 +6,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+/**
 
+ * Entity class for exchange_rate table
+
+ * @version 1.0
+
+ * @author Aleksandar Paripovic
+
+ */
 @Getter
 @Setter
 @NoArgsConstructor

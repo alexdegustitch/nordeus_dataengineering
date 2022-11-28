@@ -9,6 +9,15 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+
+ * Entity class for event table
+
+ * @version 1.0
+
+ * @author Aleksandar Paripovic
+
+ */
 
 @Getter
 @Setter

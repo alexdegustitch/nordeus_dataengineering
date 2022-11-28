@@ -1,6 +1,5 @@
 package com.nordeus.dataengineering.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +11,13 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
+/**
+ * Entity class for transaction_event table
+ *
+ * @author Aleksandar Paripovic
+ *
+ * @version 1.0
+ */
 @Getter
 @Setter
 @NoArgsConstructor

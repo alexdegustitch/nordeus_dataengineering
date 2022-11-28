@@ -11,7 +11,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+/**
 
+ * Entity class for registration_event table
+
+ * @version 1.0
+
+ * @author Aleksandar Paripovic
+
+ */
 @Getter
 @Setter
 @NoArgsConstructor
